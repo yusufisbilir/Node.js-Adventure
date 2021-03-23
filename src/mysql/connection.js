@@ -10,14 +10,22 @@ const connection = mysql.createConnection({
 connection.connect((err)=>{
     if(err) console.log(err);
 
-    // const createDB = "CREATE DATABASE nodejsDB"
-    // connection.query(createDB, (err)=>{
-    //     if(err) throw err;
-    //     console.log("Created DB");
-    // })
+    //create database
+    let queryDB = "CREATE DATABASE nodejsDB";
 
-    connection.query("CREATE TABLE customers(name VARCHAR(30),adres VARCHAR(100))",(err)=>{
-        if(err) console.log(err);;
-        console.log('created table');
+    //create table
+    queryDB = "CREATE TABLE customers(name VARCHAR(30),adres VARCHAR(100))";
+
+    //delete table
+    queryDB = "DROP TABLE customers";
+
+    queryDB = "CREATE TABLE students(id INT AUTO_INCREMENT PRIMARY KEY, name varchar(30),adress varchar(100))";
+
+    // add column to table
+    queryDB = "ALTER TABLE students ADD COLUMN tckno CHAR(11)"
+
+    connection.query(queryDB, (err)=>{
+        if(err) throw err;
+        console.log(queryDB);
     });
 });
