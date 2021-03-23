@@ -35,7 +35,17 @@ connection.connect((err)=>{
     ]
 
     connection.query(queryDB,[values], (err)=>{
-        if(err) throw err;
+        if(err) console.log(err);;
         console.log(queryDB);
+    });
+});
+
+
+connection.connect(err =>{
+    if(err) console.log(err);
+
+    connection.query("SELECT * FROM students",(err,data)=>{
+        if(err) console.log(err);
+        console.log(data);
     });
 });
