@@ -46,6 +46,16 @@ connection.connect(err =>{
 
     connection.query("SELECT * FROM students",(err,data)=>{
         if(err) console.log(err);
+        // console.log(data);
+    });
+});
+
+
+connection.connect(err=>{
+    if(err) console.log(err);
+
+    connection.query("SELECT * FROM students WHERE name='Yusuf'",(err,data)=>{
+        if(err) console.log(err);
         console.log(data);
     });
 });
