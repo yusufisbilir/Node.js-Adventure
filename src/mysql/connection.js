@@ -22,7 +22,10 @@ connection.connect((err)=>{
     queryDB = "CREATE TABLE students(id INT AUTO_INCREMENT PRIMARY KEY, name varchar(30),adress varchar(100))";
 
     // add column to table
-    queryDB = "ALTER TABLE students ADD COLUMN tckno CHAR(11)"
+    queryDB = "ALTER TABLE students ADD COLUMN tckno CHAR(11)";
+
+    //add data
+    queryDB = "INSERT INTO students (name,adress,tckno) values ('Yusuf','Kocaeli',12345678911)"
 
     connection.query(queryDB, (err)=>{
         if(err) throw err;
