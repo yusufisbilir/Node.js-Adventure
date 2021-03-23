@@ -25,9 +25,16 @@ connection.connect((err)=>{
     queryDB = "ALTER TABLE students ADD COLUMN tckno CHAR(11)";
 
     //add data
-    queryDB = "INSERT INTO students (name,adress,tckno) values ('Yusuf','Kocaeli',12345678911)"
+    queryDB = "INSERT INTO students (name,adress,tckno) values ('Yusuf','Kocaeli',12345678911)";
 
-    connection.query(queryDB, (err)=>{
+    queryDB = "INSERT INTO students (name,adress,tckno) values ?";
+    values = [
+        ["abc","abc",22345678911],
+        ["abcd","abcd",32345678911],
+        ["abcde","abcde",42345678911],
+    ]
+
+    connection.query(queryDB,[values], (err)=>{
         if(err) throw err;
         console.log(queryDB);
     });
