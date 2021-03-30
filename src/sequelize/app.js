@@ -2,9 +2,9 @@ const express = require('express');
 const app = express();
 const port = 3000;
 
-const sequelize = require('./database');
+const db = require('./database');
 
-sequelize
+db
     .authenticate()
     .then(()=>{
         console.log('Connected DB');
